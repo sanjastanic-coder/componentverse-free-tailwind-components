@@ -1,3 +1,18 @@
+# ⚡ ComponentVerse — Free Tailwind & Next.js Components
+
+Production-ready, **Zero-Dependency** animated UI components built for **Next.js** and **Tailwind CSS**.
+
+> 🚀 **Want all 10+ Premium Animated Components?**  
+> Unlock the full interactive catalog (including **Biometric Hold Trigger**, **Green Rooster Matrix**, **Quantum Particle Orbit**, **Cyber Text Glitch**, and weekly Tuesday Drops) at **[www.componentverse.space](https://componentverse.space)**!
+
+---
+
+### 💎 Available Plans on ComponentVerse
+* **Free Starter ($0):** Test Free Module #02 (`Neon Glow Card`) immediately.
+* **Pro Monthly ($49.90/mo):** Full access to all 10+ components & weekly Tuesday Drops.
+* **All-Access Lifetime ($99):** One-time payment. Unlimited lifetime access to all modules.
+
+👉 **[Explore Live Interactive Playground →](https://componentverse.space/pricing)**
 # ComponentVerse - Free Cyberpunk Tailwind CSS Components
 
 A collection of free, production-ready animated components built for Next.js and Tailwind CSS. Designed for high-performance telemetry layers, sci-fi interfaces, and futuristic webs.
