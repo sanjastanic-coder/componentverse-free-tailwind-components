@@ -181,6 +181,165 @@ export const TelemetryMetricCard: React.FC<TelemetryMetricCardProps> = ({
 
 export default TelemetryMetricCard;
 ```
+### 🔘 Neon Cyber Button (`NeonCyberButton.tsx`)
+High-intensity interactive button with neon glow, corner accents, scan-line hover effect and multiple color variants (`cyan`, `emerald`, `magenta`).
+
+Copy this code and deploy it in your project:
+
+```tsx
+import React from 'react';
+
+interface NeonCyberButtonProps {
+  children?: React.ReactNode;
+  onClick?: () => void;
+  variant?: 'cyan' | 'emerald' | 'magenta';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+}
+
+export const NeonCyberButton: React.FC<NeonCyberButtonProps> = ({
+  children = "INITIATE_SEQUENCE",
+  onClick,
+  variant = 'cyan',
+  size = 'md',
+  className = '',
+}) => {
+  const variants = {
+    cyan: {
+      border: 'border-cyan-400/60',
+      text: 'text-cyan-300',
+      glow: 'hover:shadow-[0_0_25px_rgba(34,211,238,0.45)]',
+      bg: 'bg-cyan-950/40',
+      accent: 'bg-cyan-400',
+    },
+    emerald: {
+      border: 'border-emerald-400/60',
+      text: 'text-emerald-300',
+      glow: 'hover:shadow-[0_0_25px_rgba(16,185,129,0.45)]',
+      bg: 'bg-emerald-950/40',
+      accent: 'bg-emerald-400',
+    },
+    magenta: {
+      border: 'border-fuchsia-400/60',
+      text: 'text-fuchsia-300',
+      glow: 'hover:shadow-[0_0_25px_rgba(232,121,249,0.45)]',
+      bg: 'bg-fuchsia-950/40',
+      accent: 'bg-fuchsia-400',
+    },
+  };
+
+  const sizes = {
+    sm: 'px-4 py-1.5 text-xs',
+    md: 'px-6 py-2.5 text-sm',
+    lg: 'px-8 py-3.5 text-base',
+  };
+
+  const v = variants[variant];
+
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        relative group font-mono font-bold tracking-widest uppercase
+        border ${v.border} ${v.bg} ${v.text} ${v.glow}
+        ${sizes[size]}
+        transition-all duration-300
+        hover:scale-[1.03] active:scale-95
+        overflow-hidden
+        ${className}
+      `}
+    >
+      <span className={`absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 ${v.border}`} />
+      <span className={`absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 ${v.border}`} />
+      <span className={`absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 ${v.border}`} />
+      <span className={`absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 ${v.border}`} />
+      <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <span className="relative z-10 flex items-center gap-2">
+        <span className={`w-1.5 h-1.5 rounded-full ${v.accent} animate-pulse`} />
+        {children}
+      </span>
+    </button>
+  );
+};
+
+export default NeonCyberButton;
+```
+
+### 📡 Cyber Radar Pulse (`CyberRadarPulse.tsx`)
+Animated radar scanner with rotating sweep, multiple pulse rings and customizable size/color. Perfect for loading states and status indicators.
+
+Copy this code and deploy it in your project:
+
+```tsx
+import React from 'react';
+
+interface CyberRadarPulseProps {
+  size?: number;
+  color?: 'cyan' | 'emerald' | 'magenta';
+  label?: string;
+  className?: string;
+}
+
+export const CyberRadarPulse: React.FC<CyberRadarPulseProps> = ({
+  size = 120,
+  color = 'cyan',
+  label = "SCANNING...",
+  className = '',
+}) => {
+  const colors = {
+    cyan: {
+      main: 'border-cyan-400',
+      glow: 'shadow-[0_0_20px_rgba(34,211,238,0.4)]',
+      text: 'text-cyan-400',
+      dot: 'bg-cyan-400',
+    },
+    emerald: {
+      main: 'border-emerald-400',
+      glow: 'shadow-[0_0_20px_rgba(16,185,129,0.4)]',
+      text: 'text-emerald-400',
+      dot: 'bg-emerald-400',
+    },
+    magenta: {
+      main: 'border-fuchsia-400',
+      glow: 'shadow-[0_0_20px_rgba(232,121,249,0.4)]',
+      text: 'text-fuchsia-400',
+      dot: 'bg-fuchsia-400',
+    },
+  };
+
+  const c = colors[color];
+
+  return (
+    <div className={`relative flex flex-col items-center gap-3 ${className}`}>
+      <div
+        className="relative flex items-center justify-center"
+        style={{ width: size, height: size }}
+      >
+        <div className={`absolute inset-0 rounded-full border ${c.main} opacity-20 animate-ping`} />
+        <div className={`absolute inset-2 rounded-full border ${c.main} opacity-30`} />
+        <div className={`absolute inset-4 rounded-full border ${c.main} opacity-50`} />
+        <div className={`absolute inset-6 rounded-full border-2 ${c.main} ${c.glow} bg-black/40`} />
+        <div
+          className="absolute inset-0 rounded-full animate-spin"
+          style={{ animationDuration: '3s' }}
+        >
+          <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-1/2 origin-bottom bg-gradient-to-t from-transparent to-current ${c.text} opacity-80`} />
+        </div>
+        <div className={`w-3 h-3 rounded-full ${c.dot} animate-pulse ${c.glow}`} />
+      </div>
+
+      {label && (
+        <div className={`font-mono text-xs tracking-widest uppercase ${c.text} opacity-80`}>
+          {label}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CyberRadarPulse;
+```
+
 💎 Want More? Get All-Access Lifetime!
 Unlock our full premium catalog including:
 * **Green Rooster Matrix** (Procedural emerald core telemetry layers)
